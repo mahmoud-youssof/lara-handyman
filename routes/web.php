@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'ViewController@index')->name('home');
 Route::get('/services', 'ViewController@services')->name('services');
 Route::get('/about', 'ViewController@about')->name('about');
-Route::get('/contact', 'ViewController@contact')->name('contact');
+Route::get('/message', 'ViewController@message')->name('message');
 Route::POST('/contactpost', 'ViewController@contact')->name('contactmessage');
+
+
+Route::get('/viewcontact', 'adminController@viewcontact')->name('contactview');
+
 
 
 Auth::routes();

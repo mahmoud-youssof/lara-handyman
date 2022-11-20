@@ -69,4 +69,9 @@ class ViewController extends Controller
 
         return back()->with('alert-success', 'We have received your message Thank U.');
     }
+    public function message( )
+    {
+
+        return view('app.contact');
+    }
 }

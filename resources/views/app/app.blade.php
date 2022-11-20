@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -41,7 +41,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
-                        <li class="nav-item "><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{{ route('message') }}">Contact</a></li>
                         @guest
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -107,7 +107,8 @@
         <!-- Workers item 1 modal popup-->
 
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+ 
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script src="js/test.js"></script>
