@@ -91,7 +91,7 @@
 
     <!-- ADD NEW CATEGORY FOR  -->
 
-    <div class="Workers-modal modal fade" id="editModal{{ $servie->categories_id }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="Workers-modal modal fade" id="newModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog mx-auto">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
