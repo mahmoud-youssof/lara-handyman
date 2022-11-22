@@ -21,18 +21,25 @@ Route::get('/about', 'ViewController@about')->name('about');
 Route::get('/message', 'ViewController@message')->name('message');
 Route::POST('/contactpost', 'ViewController@contact')->name('contactmessage');
 
+Route::group(['middleware' => 'IsAdmin'], function () {
+    //
+    Route::get('/viewcontact', 'adminController@viewcontact')->name('contactview');
+    Route::get('/deletecontact/{contactid}', 'adminController@deletecontact')->name('deletecontact');
+    Route::get('/viewservies', 'adminController@viewservies')->name('viewservies');
+    Route::POST('/categorypost', 'adminController@categorypost')->name('categorypost');
+    Route::POST('/categoryupdate/{categoriesid}', 'adminController@categoryupdate')->name('categoryupdate');
+    Route::get('/deleteservies/{categoriesid}', 'adminController@deleteservies')->name('deleteservies');
 
-Route::get('/viewcontact', 'adminController@viewcontact')->name('contactview');
-Route::get('/deletecontact/{contactid}', 'adminController@deletecontact')->name('deletecontact');
-Route::get('/viewservies', 'adminController@viewservies')->name('viewservies');
-Route::POST('/categorypost', 'adminController@categorypost')->name('categorypost');
-Route::POST('/categoryupdate/{categoriesid}', 'adminController@categoryupdate')->name('categoryupdate');
-Route::get('/deleteservies/{categoriesid}', 'adminController@deleteservies')->name('deleteservies');
+    Route::get('/viewworkers', 'adminController@viewworkers')->name('viewworkers');
+    Route::POST('/workerpost', 'adminController@workerpost')->name('workerpost');
+    Route::POST('/workerupdate/{workerid}', 'adminController@workerupdate')->name('workerupdate');
+    Route::get('/deleteworker/{workerid}', 'adminController@deleteworker')->name('deleteworker');
 
-Route::get('/viewworkers', 'adminController@viewworkers')->name('viewworkers');
-Route::POST('/workerpost', 'adminController@workerpost')->name('workerpost');
-Route::POST('/workerupdate/{workerid}', 'adminController@workerupdate')->name('workerupdate');
-Route::get('/deleteworker/{workerid}', 'adminController@deleteworker')->name('deleteworker');
+    Route::get('/viewusers', 'adminController@viewusers')->name('viewusers');
+    Route::get('/useradmin/{userid}', 'adminController@useradmin')->name('useradmin');
+
+
+});
 
 
 

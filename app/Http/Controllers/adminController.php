@@ -110,6 +110,7 @@ class adminController extends Controller
 
         return view('app.viewworkers', ['workers'=> $workers , 'categories'=>$categories ]);
     }
+
     public function workerpost(Request $request)
     {
 // dd($request);
@@ -188,4 +189,26 @@ class adminController extends Controller
 
         return back()->with('alert-danger', 'You have Deleted a Worker.');
     }
+    public function viewusers( )
+    {
+        $users = DB::table('users')->get();
+
+        return view('app.viewusers', ['users'=> $users ]);
+    }
+
+    public function useradmin($userid )
+    {
+        $userinfo = DB::table('users')->where('id', $userid)->first();
+
+        if($userinfo->admin == 0){
+            $newrole = 1;
+        }elseif ($userinfo->admin == 1){
+            $newrole = 0;
+
+        }
+        $user = DB::table('users')->where( 'id' , $userid  )->update(['admin' => $newrole]);
+        return back()->with('alert-success', 'You have Updated your User Role.');
+    }
+
+
 }
