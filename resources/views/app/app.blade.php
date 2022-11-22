@@ -12,7 +12,6 @@
 
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{  asset('assets/favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
@@ -28,7 +27,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <!-- <img src="assets/img/navbar-logo.svg" alt="..." /> -->
                     Handyman
                 </a>
