@@ -32,6 +32,7 @@
                         <th class="w-auto">id</th>
                         <th class="w-auto">name</th>
                         <th class="w-auto">Description</th>
+                        <th class="w-auto">Social-Media</th>
                         <th class="w-auto">image</th>
                         <th class="w-auto">Actions</th>
                     </tr>
@@ -42,11 +43,12 @@
                     <tr>
                         <td class="w-auto"> {{ $worker->id }}</td>
                         <td class="w-auto"> {{ $worker->name }}</td>
+                        <td class="w-auto"> {{ $worker->description }}</td>
                         <td class="w-auto">
                         <a class="btn btn-dark btn-social mx-2" href="https://wa.me/{{ $worker->whatsapp }}?text= " aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="{{ $worker->instgram }}" aria-label="instagram"><i class="fab fa-instagram"></i></a>
                         </td>
-                        <td class="w-auto"><img class="img-fluid " src=" {{ asset('image/'. $worker->image) }} " alt="{{ $worker->name}}" /> {{ $worker->image }}</td>
+                        <td class="w-auto"><img class="img-fluid card-img-top " src=" {{ asset('image/'. $worker->image) }} " alt="{{ $worker->name}}" /> {{ $worker->image }}</td>
                         <td align="center">
                                 <a class="btn btn-default" data-bs-toggle="modal"   href="#editModal{{ $worker->id }}" ><em class="fa fa-pencil"></em></a>
                                 <a class="btn btn-danger"  data-bs-toggle="modal"   href="#WorkersModal{{ $worker->id }}" ><em class="fa fa-trash"></em></a>
@@ -95,7 +97,7 @@
     @endforeach
 
 
-    <!-- ADD NEW CATEGORY FOR  -->
+    <!-- ADD NEW Worker FOR  -->
 
     <div class="Workers-modal modal fade" id="newModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog mx-auto">
@@ -114,6 +116,8 @@
                                 @csrf
                                     <div class="row align-items-stretch mb-12">
                                         <div class="col-md-10">
+                                    <p> Choose a category for the worker </p>
+
                                             @foreach($categories as $categories)
 
                                                 <div class="form-check col-md-3">
