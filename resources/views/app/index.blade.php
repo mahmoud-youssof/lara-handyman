@@ -20,9 +20,9 @@
                 <div class="row text-center">
                 @foreach($allCategories as $category)
                     <div class="col-md-4">
-                    <img class="img-fluid card-img-top" src="image/{{ $category->categories_image}}" alt="{{ $category->categories_name}}" />
+                    <img class="img-fluid card-img-top" src=" {{ asset('image/'. $category->categories_image) }}  " alt="{{ $category->categories_name}}" />
 
-                        <h4 class="my-3">{{  $category->categories_name}}</h4>
+                        <h4 class="my-3"><a href="{{ route('servicesid', [$category->categories_id]) }}" style="text-decoration: none;">{{  $category->categories_name}} </a></h4>
                         <p class="text-muted">{{  $category->categories_description}}</p>
                     </div>
                     @endforeach
@@ -47,7 +47,7 @@
                                 <div class="Workers-hover">
                                     <div class="Workers-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid card-img-top" src="image/{{ $worker->image}}" alt="{{ $worker->image}}" />
+                                <img class="img-fluid card-img-top" src=" {{ asset('image/'. $worker->image) }}  " alt="{{ $worker->image}}" />
                             </a>
                             <div class="Workers-caption">
                                 <div class="Workers-caption-heading">{{  $worker->name}}</div>
@@ -70,7 +70,7 @@
                 @foreach($about as $about1)
 
                     <li class=" {{ $is_admin = ( $about1->id % 2 == 0 ) ? '' : 'timeline-inverted' }} ">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="image/{{ $about1->image}}" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src=" {{ asset('image/'. $about1->image) }} " alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                             {{  $about1->title}}
@@ -152,17 +152,16 @@
         @foreach($workers as $worker)
 
         <div class="Workers-modal modal fade" id="WorkersModal{{ $worker->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog mx-auto">
                 <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="close-modal" data-bs-dismiss="modal"><img src=" {{ asset('assets/img/close-icon.svg') }} " alt="Close modal" /></div>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="image/{{ $worker->image }}" alt="..." />
+                                    <!-- <h2 class="text-uppercase">Project Name</h2>  -->
+                                    <img class="img-fluid d-block mx-auto" src=" {{ asset('image/'. $worker->image) }} " alt="..." />
                                     <p> {{ $worker->description }} </p>
                                     <ul class="list-inline">
                                         <li>
@@ -170,9 +169,11 @@
                                             {{ $worker->name }}
                                         </li>
                                         <li>
-                                            <strong>Category:</strong>
-                                            {{ $worker->categories_id }}
+                                            <strong>Servies:</strong>
+                                            {{ $worker->categories_name }}
                                         </li>
+                        <a class="btn btn-dark btn-social mx-2" href="https://wa.me/{{ $worker->whatsapp }}?text= " aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="{{ $worker->instgram }}" aria-label="instagram"><i class="fab fa-instagram"></i></a>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>

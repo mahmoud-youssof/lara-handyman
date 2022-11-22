@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="js/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}  "></script>
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -14,15 +14,15 @@
         <meta name="author" content="" />
         <title>Agency - Start Bootstrap Theme</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{{  asset('assets/favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/custoum.css" rel="stylesheet" />
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/custoum.css') }}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -58,6 +58,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{ route('contactview') }}">View Messages </a>
+                                <a class="dropdown-item" href="{{ route('viewservies') }}">View Servies </a>
+                                <a class="dropdown-item" href="{{ route('viewworkers') }}">View Workers </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -95,6 +99,8 @@
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
                         <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
@@ -107,11 +113,11 @@
         <!-- Workers item 1 modal popup-->
 
         <!-- Bootstrap core JS-->
-    <script src="js/bootstrap.bundle.min.js"></script>
- 
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="js/test.js"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+        <script src="{{ asset('js/test.js') }}"></script>
         <script  type="application/javascript">setTimeout(function(){
         $("div.flash-message").remove();
             }, 5000 ); // 5 secs

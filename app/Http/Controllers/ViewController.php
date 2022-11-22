@@ -38,6 +38,17 @@ class ViewController extends Controller
 
     }
 
+    public function servicesid($categoryid)
+    {
+
+        $allCategories = DB::table('categories')->where('categories_id' , $categoryid )->get();
+
+        $workers = DB::table('workers')->where('cat-id' , $categoryid )->Join('categories', 'cat-id', '=', 'categories_id')->paginate(16);
+
+        return view('app.services', ['allCategories'=> $allCategories , 'workers'=> $workers ]);
+
+    }
+
     public function about()
     {
         $about = DB::table('about')->get();
