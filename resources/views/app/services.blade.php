@@ -55,7 +55,6 @@
                                                 <!-- <h2 class="text-uppercase">Project Name</h2> -->
                                                 <!-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> -->
                                                 <img class="img-fluid d-block mx-auto" src=" {{ asset('image/'.  $worker->image) }} " alt="..." />
-                                                <p> {{ $worker->description }} </p>
                                                 <ul class="list-inline">
                                                     <li>
                                                         <strong>Name:</strong>
@@ -65,6 +64,7 @@
                                                         <strong>Category:</strong>
                                                         {{ $worker->categories_id }}
                                                     </li>
+                                                    <p> {{ $worker->description }} </p>
                         <a class="btn btn-dark btn-social mx-2" href="https://wa.me/{{ $worker->whatsapp }}?text= " aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="{{ $worker->instgram }}" aria-label="instagram"><i class="fab fa-instagram"></i></a>
                                                 </ul>
